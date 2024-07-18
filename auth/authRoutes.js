@@ -7,7 +7,7 @@ const authRouter = Router();
 authRouter.post('/register' , (request,response)=>{
     const { username , email , password } = request.body;
 
-    const insertValue = [ username , email , password];
+    const insertValue = [ username , email , password ];
 
     pool.query(`INSERT INTO tbl_user (username,email,password) VALUES (?,?,?)`,insertValue,(error,result)=>{
         if(error) response.status(500).json({
